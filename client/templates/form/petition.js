@@ -1,6 +1,5 @@
 Template.register.helpers({
   sigs:function() {
-    //return Signatures.find({}, {sort: {createdAt: -1}});
       return Signatures.find();
   }
 });
