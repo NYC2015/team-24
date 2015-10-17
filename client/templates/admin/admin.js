@@ -13,15 +13,22 @@ Template.admin.helpers({
 if(Session.get("ziparea")){
   if (Session.get("timeline")) {
     // If hide completed is checked, filter tasks
+    Session.set("q_count", Signatures.find({volunteer: true, zip: Session.get("ziparea")}).count());
     return Signatures.find({volunteer: true, zip: Session.get("ziparea")});
   } else {
     // Otherwise, return all of the tasks
+    Session.set("q_count", Signatures.find({zip: Session.get("ziparea")}).count());
     return Signatures.find({zip: Session.get("ziparea")});
   }
 } else {
+  Session.set("q_count", Signatures.find().count());
   return Signatures.find();
 }
   },
+  qcount: function() {
+    return Session.get("q_count");
+  },
+
 	timeline: function () {
 	  return Session.get("timeline");
 	}
