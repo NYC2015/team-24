@@ -22,6 +22,40 @@ if(Meteor.isClient) {
         //volunteer: vol,
         createdAt: new Date()
       });
+      
+      	  	//Stores data from input into local storage
+	if(typeof(Storage) !== "undefined"){
+		if(document.getElementById("fullname").value && document.getElementById("zip").value && document.getElementById("reason").value){
+			localStorage.setItem("fullname", document.getElementById("fullname").value);
+			localStorage.setItem("zip", document.getElementById("zip").value);
+			localStorage.setItem("message", document.getElementById("message").value);
+			if(document.getElementById("vol").checked){
+				localStorage.setItem("vol", "yes");
+			}
+			else{
+				localStorage.setItem("vol", "no");
+			}
+			
+		//Ajax call to php server
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:3000/",
+			data: { name: localStorage.fullname, age: localStorage.zip, message: localStorage.message, vol: localStorage.vol },
+			success: function(data) {
+				alert('data sent');
+			},
+			error: function(response, text, err){
+				alert('data not sent');
+			}
+		});
+		}
+		else{
+			alert("You have left a field out. Please try again");
+		}
+	}
+	else{
+		alert("Sorry, there is no web storage support :(");
+	}
 
     }
   });
