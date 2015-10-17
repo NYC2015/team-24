@@ -7,12 +7,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h3>Share!</h3>
+        <h3>Upload an image below and share!</h3>
         <div id="social_login" class="social_login">
 
         <div class="content">
             <div class="inner_container">
-              <h3>upload an image!</h3>
               <div>
                 <input type="file" id="file" />
               </div>
@@ -23,7 +22,7 @@
                   <input id="topLineText" type="text"><br/>
                   <span>Bottom Line:</span><br/>
                   <input id="bottomLineText" type="text"><br/>
-                  <button id="saveBtn">Save</button>
+                  <button id="saveBtn">Upload</button>
                 </div>
               </div>
             </div>
@@ -37,13 +36,13 @@
               } else {
                 window.bottomLineText = text;
               }
-              redrawMeme(window.imageSrc, window.topLineText, window.bottomLineText);
+              redrawPhoto(window.imageSrc, window.topLineText, window.bottomLineText);
             }
-            function redrawMeme(image, topLine, bottomLine) {
+            function redrawPhoto(image, topLine, bottomLine) {
               // Get Canvas2DContext
               var canvas = document.querySelector('canvas');
               var ctx = canvas.getContext("2d");
-              ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+              ctx.drawImage(image, 0, 0, canvas.width, canvas.height/image.height * image.height);
               if (topLine) { drawMessage(canvas, ctx, 'top', topLine); }
               if (bottomLine) { drawMessage(canvas, ctx, 'bottom', bottomLine); }
             }
@@ -79,7 +78,7 @@
                 var image = new Image();
                 image.onload = function() {
                   window.imageSrc = this;
-                  redrawMeme(window.imageSrc, null, null);
+                  redrawPhoto(window.imageSrc, null, null);
                 };
                 // Set image data to background image.
                 image.src = data;

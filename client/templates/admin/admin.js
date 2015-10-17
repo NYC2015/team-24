@@ -35,4 +35,7 @@ Template.admin.events({
     Session.set("timeline", event.target.timeline.checked);
 
   },
+  "click .delete": function () {
+      Signatures.remove(this._id);
+  }
 });

@@ -13,9 +13,10 @@
       <p><input type="submit" value="query"/></p>
     </form>
   
-{{#each sigs}}
+  {{#each sigs}}
     <ul>
       {{fullname}} - {{zip}} - {{volunteer}} - {{message}}
+      <button class="delete">&times;</button>
     </ul>
   {{/each}}  
   </div>
