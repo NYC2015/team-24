@@ -9,6 +9,94 @@
       <div class="col-md-8">
         <h3>Share!</h3>
         <div id="social_login" class="social_login">
+
+        <div class="content">
+            <div class="inner_container">
+              <h3>upload an image!</h3>
+              <div>
+                <input type="file" id="file" />
+              </div>
+              <div id="image-container">
+                <canvas width="500" height="500"></canvas>
+                <div>
+                  <span>Top Line:</span><br/>
+                  <input id="topLineText" type="text"><br/>
+                  <span>Bottom Line:</span><br/>
+                  <input id="bottomLineText" type="text"><br/>
+                  <button id="saveBtn">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            function textChangeListener (evt) {
+              var id = evt.target.id;
+              var text = evt.target.value;
+              if (id == "topLineText") {
+                window.topLineText = text;
+              } else {
+                window.bottomLineText = text;
+              }
+              redrawMeme(window.imageSrc, window.topLineText, window.bottomLineText);
+            }
+            function redrawMeme(image, topLine, bottomLine) {
+              // Get Canvas2DContext
+              var canvas = document.querySelector('canvas');
+              var ctx = canvas.getContext("2d");
+              ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+              if (topLine) { drawMessage(canvas, ctx, 'top', topLine); }
+              if (bottomLine) { drawMessage(canvas, ctx, 'bottom', bottomLine); }
+            }
+            function drawMessage(canvas, ctx, position, message) {
+              var fontSize = 30;
+              var padding = 10;
+              var verticalPosition = function() {
+                if (position === 'top') {
+                  return fontSize + padding;
+                } else {
+                  return canvas.height - padding;
+                }
+              };
+              ctx.font = fontSize + 'pt Impact';
+              ctx.textAlign = 'center';
+              ctx.fillStyle = 'white';
+              ctx.fillText(message, canvas.width / 2, verticalPosition() - 5);
+              ctx.strokeStyle = 'black';
+              ctx.lineWidth = fontSize/10;
+              ctx.strokeText(message, canvas.width / 2, verticalPosition() - 5);
+            }
+            function saveFile() {
+              window.open(document.querySelector('canvas').toDataURL());
+            }
+            function handleFileSelect(evt) {
+              var canvasWidth = 500;
+              var canvasHeight = 500;
+              var file = evt.target.files[0];
+              var reader = new FileReader();
+              reader.onload = function(fileObject) {
+                var data = fileObject.target.result;
+                // Create an image object
+                var image = new Image();
+                image.onload = function() {
+                  window.imageSrc = this;
+                  redrawMeme(window.imageSrc, null, null);
+                };
+                // Set image data to background image.
+                image.src = data;
+                console.log(fileObject.target.result);
+              };
+              reader.readAsDataURL(file);
+            }
+            window.topLineText = "";
+            window.bottomLineText = "";
+            var input1 = document.getElementById('topLineText');
+            var input2 = document.getElementById('bottomLineText');
+            input1.oninput = textChangeListener;
+            input2.oninput = textChangeListener;
+            document.getElementById('file').addEventListener('change', handleFileSelect, false);
+            document.querySelector('button').addEventListener('click', saveFile, false);
+          </script>
+
         </div>
       </div>
     </div>
