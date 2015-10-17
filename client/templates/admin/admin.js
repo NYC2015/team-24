@@ -21,6 +21,7 @@ Template.admin.helpers({
 	timeline: function () {
 	  return Session.get("timeline");
 	}
+
 });
 
 Template.admin.events({
@@ -38,4 +39,17 @@ Template.admin.events({
   "click .delete": function () {
       Signatures.remove(this._id);
   }
+});
+
+Template.admin.isUserAdmin = function() {
+  var userEmail = Meteor.user().username;
+  if(userEmail === "rocktheearth@gmail.com") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
 });
