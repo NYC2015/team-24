@@ -5,19 +5,19 @@
 </head>
 <body>
   <div class="container">
-        <h3>Signature Form</h3>
+        <img src="submission_form.png" style="width:250px">
     <div id="registration" class="registration">
   	<form class="submission">
-  		<p><input type="text" name="fullname" placeholder="Name" required/></p>
-  		<p><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" required/></p>
+  		<p style="margin-left:130px"><input type="text" name="fullname" placeholder="Name" class="form-control" style="width:300px" required/></p>
+  		<p style="margin-left:130px"><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" style="width:300px" class="form-control" required/></p>
   		<p><input type="checkbox" name="vol" value=""/> Do you want to volunteer in the future? </p>
-  		<p>I want to help because... <input type='text' name="message" list="reasons">
+  		<p style="margin-left:130px">I want to help because... <input style="width:300px" type='text' class="form-control" name="message" list="reasons">
         <datalist id="reasons">
           <option value="I don't want to die">I don't want to die</option>
           <option value="Nuclear fallout is no fun">Nuclear fallout is no fun</option>
         </datalist></p>
 
-  		<p><input type="submit" value="Sign!"/></p>
+  		<p><input type="submit" class="btn btn-default" value="Sign!"/></p>
   	</form>
 
     </div>

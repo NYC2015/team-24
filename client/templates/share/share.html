@@ -6,10 +6,10 @@
 <body>
 <!--  -->
   <div class="container">
-         <h2>Upload an image below and share your support!</h2>
-        <div id="social_login" class="social_login">
     <div class="row">
       <div class="col-md-8">
+        <img src="share.png" style="width:400px">
+        <div id="social_login" class="social_login">
 
         <div class="content">
             <div class="inner_container">
@@ -19,10 +19,11 @@
               <div id="image-container">
                 <canvas width="500" height="500"></canvas>
                 <div>
-                  <input id="topLineText" type="hidden">
-                  <span>Bottom Line:</span>
-                  <input id="bottomLineText" type="text">
-                  <button id="saveBtn">Upload</button>
+                  <p>Top Line:</p>
+                  <input id="topLineText" class="form-control" type="text"><br/>
+                  <p>Bottom Line:</p>
+                  <input id="bottomLineText" class="form-control" type="text"><br/>
+                  <button class="btn btn-default" id="saveBtn">Upload</button><br><br>
                 </div>
               </div>
             </div>
@@ -104,10 +105,9 @@
             document.querySelector('button').addEventListener('click', saveFile, false);
           </script>
 
-          <br>
-          <div class="fb-share-button"
+          <p><div class="fb-share-button"
           data-layout="button_count">
-          </div>
+      </div></p>
         </div>
       </div>
     </div>
