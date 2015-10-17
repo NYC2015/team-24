@@ -13,6 +13,7 @@ Template.register.events({
     var zip = event.target.zip.value;
     var volunteer = event.target.vol.checked;
     var message = event.target.message.value;
+    Session.set("msg", message);
 
     Signatures.insert({
       fullname: fullname,
