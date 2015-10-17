@@ -1,0 +1,27 @@
+<head>
+	<title>Admin page</title>
+</head>
+
+<body>
+	<header>
+		<h1>Find Signatures</h1>
+	</header>
+
+	<p>Enter zip code: <textarea name="zipcode"></p>
+	<button id="recent_act">Get Recent Activity</button>
+	<button id="all_act">Get All Activity</button>
+
+	<ul>
+      {{#each recent_names}}
+        {{> signature}}
+      {{/each}}
+    </ul>
+
+</body>
+
+<template name="signature">
+  <li>
+    <p>{{fullname}}</p>
+    <p>{{zip}}</p>
+  </li>
+</template>
