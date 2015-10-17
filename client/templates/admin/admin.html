@@ -3,13 +3,9 @@
   <title>Admin page</title>
 </head>
 
-
-
-
-
 <body>
   <div class="container">
-    <h1>Find Signatures</h1>
+    <img src="find_signatures.png" style="width:300px">
 
     {{> loginButtons}}
 
@@ -17,12 +13,12 @@
     {{#if isUserAdmin}}
 
     <form class="query">
-      <p><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" required/></p>
+      <p style="margin-left:130px"><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" class="form-control" style="width:300px" required/></p>
       <p><input type="checkbox" name="timeline" value=""/> Interested volunteers? </p>
-      <p><input type="submit" value="query"/></p>
+      <p><input type="submit" class="btn btn-default" value="query"/></p>
     </form>
+    <hr>
 
-  
   {{#each sigs}}
     <ul>
       {{fullname}} - {{zip}} - {{volunteer}} - {{message}}
