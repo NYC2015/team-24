@@ -9,3 +9,7 @@ Router.route('/register', function () {
 Router.route('/share', function () {
 	this.render('share');
 });
+
+Router.route('/admin', function () {
+	this.render('admin');
+});

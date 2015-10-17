@@ -1,0 +1,31 @@
+<template name = "admin">
+<head>
+  <title>Admin page</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Find Signatures</h1>
+
+    <form class="query">
+      <p><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" required/></p>
+      <p><input type="checkbox" name="timeline" value=""/> Recent queries? </p>
+      <p><input type="submit" value="query"/></p>
+    </form>
+  
+{{#each sigs}}
+    <ul>
+      {{fullname}} - {{zip}} - {{volunteer}} - {{message}}
+    </ul>
+  {{/each}}  
+  </div>
+</body>
+</template>
+
+<template name = "data">
+  {{#each sigs}}
+    <ul>
+      {{fullname}} - {{zip}} - {{volunteer}} - {{message}}
+    </ul>
+  {{/each}}
+</template>

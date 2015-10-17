@@ -6,8 +6,7 @@
 <body>
   <div class="container">
         <h3>Signature Form</h3>
-        <div id="registration" class="registration">
-
+    <div id="registration" class="registration">
   	<form class="submission">
   		<p><input type="text" name="fullname" placeholder="Name" required/></p>
   		<p><input type="text" pattern="\d{5}-?(\d{4})?" name="zip" placeholder="Zipcode" required/></p>
@@ -18,12 +17,6 @@
   		</select></p>
   		<p><input type="submit" value="Sign!"/></p>
   	</form>
-
-    {{#each sigs}}
-  	<ul>
-  			{{fullname}} - {{zip}} - {{volunteer}} - {{message}}
-  	</ul>
-    {{/each}}
 
     </div>
   </div>
