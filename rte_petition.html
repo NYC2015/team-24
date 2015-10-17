@@ -4,30 +4,33 @@
 
 <body>
   <header>
-  	<h1>Sign</h1>
+    <h1>Sign</h1>
   </header>
 
-  	<form class="submission">
-  		<p><input type="text" name="fullname" placeholder="Name" required/></p>
-  		<p><input type="text" name="zip" placeholder="Zipcode" required/></p>
-  		<p><input type="checkbox" name="vol" value="yes"/> Do you want to volunteer in the future? </p>
-  		<p>I want to help because... <select name="message">
-  			<option value="">I want to be safe</option>
-  			<option value="">Energy shouldn't put us in danger</option>
-  		</select></p>
-  		<p><input type="submit" value="Sign!"/></p>
-  	</form>
+    <form class="submission">
+      <p><input type="text" name="fullname" placeholder="Name" required/></p>
+      <p><input type="text" name="zip" placeholder="Zipcode" required/></p>
+      <p><input type="checkbox" name="vol" value="yes"/> Do you want to volunteer in the future? </p>
+      <p>I want to help because... <input type='text' name="reason" list="reasons">
+        <datalist id="reasons">
+          <option value="I don't want to die">I don't want to die</option>
+          <option value="Nuclear fallout is no fun">Nuclear fallout is no fun</option>
+        </datalist></p>
+      <p><input type="submit" value="Sign!"/></p>
+    </form>
 
-  	<ul>
-  		{{#each sigs}}
-  			{{> sig}}
-  		{{/each}}
-  	</ul>
+    {{> loginButtons}}
+
+    <ul>
+      {{#each sigs}}
+        {{> sig}}
+      {{/each}}
+    </ul>
 
 </body>
 
 <template name="sig">
   <li>
-  	<p>{{fullname}}</p>
+    <p>{{fullname}}</p>
   </li>
 </template>
