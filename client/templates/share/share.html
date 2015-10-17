@@ -5,10 +5,10 @@
 </head>
 <body>
   <div class="container">
+         <h2>Upload an image below and share!</h2>
+        <div id="social_login" class="social_login">
     <div class="row">
       <div class="col-md-8">
-        <h3>Upload an image below and share!</h3>
-        <div id="social_login" class="social_login">
 
         <div class="content">
             <div class="inner_container">
@@ -18,10 +18,9 @@
               <div id="image-container">
                 <canvas width="500" height="500"></canvas>
                 <div>
-                  <span>Top Line:</span><br/>
-                  <input id="topLineText" type="text"><br/>
-                  <span>Bottom Line:</span><br/>
-                  <input id="bottomLineText" type="text"><br/>
+                  <input id="topLineText" type="hidden">
+                  <span>Bottom Line:</span>
+                  <input id="bottomLineText" type="text">
                   <button id="saveBtn">Upload</button>
                 </div>
               </div>
