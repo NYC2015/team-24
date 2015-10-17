@@ -4,6 +4,7 @@
   <title>Share</title>
 </head>
 <body>
+<!--  -->
   <div class="container">
          <h2>Upload an image below and share!</h2>
         <div id="social_login" class="social_login">
@@ -34,6 +35,10 @@
               js.src = "//connect.facebook.net/en_us/all.js#xfbml=1";
               fjs.parentNode.insertBefore(js,fjs);
             } (document, 'script', 'facebook-jssdk'));
+<<<<<<< HEAD
+=======
+
+>>>>>>> f5cdfd85733b884d019120d2a0adbe1fa8ae86bd
             function textChangeListener (evt) {
               var id = evt.target.id;
               var text = evt.target.value;
@@ -66,7 +71,7 @@
               ctx.font = fontSize + 'pt Impact';
               ctx.textAlign = 'center';
               ctx.fillStyle = 'white';
-              ctx.fillText(message, canvas.width / 2, verticalPosition() - 5);
+              ctx.fillText(message, canvas.width / 2, verticalPosition() - 10);
               ctx.strokeStyle = 'black';
               ctx.lineWidth = fontSize/10;
               ctx.strokeText(message, canvas.width / 2, verticalPosition() - 5);
@@ -102,10 +107,17 @@
             document.getElementById('file').addEventListener('change', handleFileSelect, false);
             document.querySelector('button').addEventListener('click', saveFile, false);
           </script>
+<<<<<<< HEAD
             <div class="fb-share-button"
             data-layout="button_count">
             </div>
 
+=======
+          <br>
+          <div class="fb-share-button"
+          data-layout="button_count">
+          </div>
+>>>>>>> f5cdfd85733b884d019120d2a0adbe1fa8ae86bd
         </div>
       </div>
     </div>
