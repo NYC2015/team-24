@@ -9,14 +9,18 @@ Template.admin.helpers({
   		console.log(Signatures.find());
   		return Signatures.find();
   	}*/
+
+if(Session.get("ziparea")){
   if (Session.get("timeline")) {
     // If hide completed is checked, filter tasks
-    return Signatures.find({volunteer: true});
+    return Signatures.find({volunteer: true, zip: Session.get("ziparea")});
   } else {
     // Otherwise, return all of the tasks
-    return Signatures.find();
+    return Signatures.find({zip: Session.get("ziparea")});
   }
-
+} else {
+  return Signatures.find();
+}
   },
 	timeline: function () {
 	  return Session.get("timeline");
@@ -34,6 +38,7 @@ Template.admin.events({
     	local = false;
     }*/
     Session.set("timeline", event.target.timeline.checked);
+    Session.set("ziparea", event.target.zip.value);
 
   },
   "click .delete": function () {
