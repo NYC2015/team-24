@@ -1,0 +1,34 @@
+<template name = "register">
+<head>
+  <title>Registration</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Signature Form</h3>
+        <div id="registration" class="registration">
+
+  	<form class="submission">
+  		<p><input type="text" name="fullname" placeholder="Name" required/></p>
+  		<p><input type="text" name="zip" placeholder="Zipcode" required/></p>
+  		<p><input type="checkbox" name="vol" value=""/> Do you want to volunteer in the future? </p>
+  		<p>I want to help because... <select name="message">
+  			<option value="I want to be safe">I want to be safe</option>
+  			<option value="Energy shouldn't put us in danger">Energy shouldn't put us in danger</option>
+  		</select></p>
+  		<p><input type="submit" value="Sign!"/></p>
+  	</form>
+
+    {{#each sigs}}
+  	<ul>
+  			{{fullname}} - {{zip}} - {{volunteer}} - {{message}}
+  	</ul>
+    {{/each}}
+
+    </div>
+      </div>
+    </div>
+  </div>
+</body>
+</template>
