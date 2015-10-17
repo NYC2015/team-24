@@ -14,7 +14,7 @@ body {
   margin: 0;
 
   font-size: 12px;
-  font-family: "Avenir";
+  font-family: "Avenir", "Helvetica Neue", sans-serif;
 }
 
 .submission {
@@ -22,15 +22,15 @@ body {
 }
 
 p {
-  font-family: "Avenir";
+  font-family: "Avenir", "Helvetica Neue", sans-serif;
 }
 
-h2 {
-  font-family: "Avenir";
+h2, {
+  font-family: "Avenir", "Helvetica Neue", sans-serif;
 }
 
 h1 {
-  font-family: "Aveinr";
+  font-family: "Avenir", "Helvetica Neue", sans-serif;
 }
 
 .container {
@@ -47,13 +47,13 @@ h1 {
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
-   
+
   -webkit-column-count: 5;
   -webkit-column-gap:   0px;
   -moz-column-count:    5;
   -moz-column-gap:      0px;
   column-count:         5;
-  column-gap:           0px;  
+  column-gap:           0px;
 }
 
 @media (max-width: 1200px) {
@@ -108,7 +108,7 @@ h1 {
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
-  font-family: "Avenir";
+  font-family: "Avenir", "Helvetica Neue", sans-serif; 
 }
 
 form {
