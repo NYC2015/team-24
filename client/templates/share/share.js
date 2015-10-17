@@ -1,11 +1,4 @@
-Template.register.helpers({
-  sigs:function() {
-    //return Signatures.find({}, {sort: {createdAt: -1}});
-      return Signatures.find();
-  }
-});
-
-Template.register.events({
+Template.share.events({
   "submit .submission": function (event) {
     event.preventDefault();
 
@@ -21,6 +14,5 @@ Template.register.events({
       message: message,
       createdAt: new Date()
     });
-    Router.go('/share');
   },
 });
